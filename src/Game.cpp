@@ -47,6 +47,11 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         isRunning = false;
     }
 
+    // Setting the background
+    BackTexture = TextureManager::LoadTexture("../assets/background.png");
+    backDestRect.w = 356;
+    backDestRect.h = 600;
+
     player = new GameObject("../assets/spaceship.png",118,500,206,237);
 
 }
@@ -87,8 +92,10 @@ void Game::render()
 {
     SDL_RenderClear(renderer);
 
-    // adding objects to render
-    //SDL_RenderCopy(renderer, playerTex,NULL,&destRect); 
+    // Rendering the background
+    SDL_RenderCopy(renderer,BackTexture,NULL,&backDestRect);
+    
+    // Rendering the spaceship
     player->Render();
 
     SDL_RenderPresent(renderer);

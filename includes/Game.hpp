@@ -34,6 +34,8 @@ private:
     int cnt = 0; //counter
     bool isRunning;
     SDL_Window* window;
+    SDL_Texture* BackTexture;
+    SDL_Rect backDestRect;
 
     // => Functions
 
