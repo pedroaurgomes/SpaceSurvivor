@@ -1,0 +1,27 @@
+#pragma once
+#include "Game.hpp" 
+
+class GameObject {
+
+public:
+    // Constructor and destructor
+    GameObject(const char* textureSheet, int x, int y, int h, int w);
+    ~GameObject();
+
+    void Update();
+    void Render();
+
+private: 
+    // positions
+    int xpos;
+    int ypos;
+
+    // Texture dimensions
+    int height;
+    int width;
+
+    SDL_Texture* objTexture;
+    SDL_Rect srcRect, destRect;
+    SDL_Renderer* renderer;
+
+};
