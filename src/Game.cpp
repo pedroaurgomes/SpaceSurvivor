@@ -3,6 +3,7 @@
 #include "../includes/GameObject.hpp"
 #include "../includes/SpaceshipObject.hpp"
 #include "../includes/AsteroidObject.hpp"
+#include "../includes/AsteroidSpawner.hpp"
 
 SpaceshipObject* player; // spaceship
 
@@ -88,6 +89,16 @@ void Game::update()
     */
 
     player->Update();
+
+    AsteroidSpawner::spawning();
+    AsteroidSpawner::destroyAsteroids();
+
+    for(auto ast : AsteroidSpawner::asteroids)
+    {
+        //std::cout << ast->getXPos() << " "<< ast->getYPos() << std::endl;
+        ast->Update();
+    }
+
 }
 
 void Game::render()
@@ -99,6 +110,13 @@ void Game::render()
     
     // Rendering the spaceship
     player->Render();
+
+    // Rendering the asteroids
+    for(auto ast : AsteroidSpawner::asteroids)
+    {
+        //std::cout << ast->getXPos() << " "<< ast->getYPos() << std::endl;
+        ast->Render();
+    }
 
     SDL_RenderPresent(renderer);
 }

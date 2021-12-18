@@ -4,7 +4,6 @@
 SpaceshipObject::SpaceshipObject(const char* textureSheet, int x, int y, int h, int w) 
 : GameObject::GameObject(textureSheet,x,y,h,w)
 {
-    //GameObject::GameObject(textureSheet,x,y,h,w);
 
 }
 
@@ -40,12 +39,12 @@ void SpaceshipObject::move()
             // como identificar um asteroide enquanto o jogador estiver pulando??
 
 
+
             default:
                 break;
 
         }
 
     }
-
 
 }
