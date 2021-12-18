@@ -33,6 +33,8 @@ void GameObject::Update()
     //destRect.h = srcRect.h * 2;
     destRect.w = srcRect.w / 2; // scaling by half
     destRect.h = srcRect.h / 2; // scaling by half
+
+    this->move();
 }
 
 void GameObject::Render()

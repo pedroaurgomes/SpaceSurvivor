@@ -1,10 +1,13 @@
 #include "../includes/Game.hpp"
 #include "../includes/TextureManager.hpp"
 #include "../includes/GameObject.hpp"
+#include "../includes/SpaceshipObject.hpp"
+#include "../includes/AsteroidObject.hpp"
 
-GameObject* player; // spaceship
+SpaceshipObject* player; // spaceship
 
 SDL_Renderer* Game::renderer = nullptr;
+SDL_Event Game::event;
 
 Game::Game() 
 {
@@ -52,13 +55,12 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
     backDestRect.w = 356;
     backDestRect.h = 600;
 
-    player = new GameObject("../assets/spaceship.png",118,500,206,237);
+    player = new SpaceshipObject("../assets/spaceship.png",118,500,206,237);
 
 }
 
 void Game::handleEvents()
 {
-    SDL_Event event;
     SDL_PollEvent(&event);
     switch (event.type)
     {
