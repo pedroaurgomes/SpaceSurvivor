@@ -15,6 +15,11 @@ GameObject::GameObject(const char* textureSheet, int x, int y, int h, int w)
     width = w;
 }
 
+GameObject::~GameObject()
+{
+    
+}
+
 void GameObject::Update()
 {
     //xpos++;

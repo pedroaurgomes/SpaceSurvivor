@@ -1,5 +1,5 @@
 CC=g++
-SOURCE=Game.cpp GameObject.cpp TextureManager.cpp SpaceshipObject.cpp AsteroidObject.cpp
+SOURCE=Game.cpp GameObject.cpp TextureManager.cpp SpaceshipObject.cpp AsteroidObject.cpp AsteroidSpawner.cpp
 PROG=main.cpp
 TARGET= main
 
