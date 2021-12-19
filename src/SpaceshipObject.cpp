@@ -9,6 +9,11 @@ SpaceshipObject::SpaceshipObject(const char* textureSheet, int x, int y, int h, 
     this->startTime = -7; // evitando o cooldown nos primeiros 7 segundos do jogo
 }
 
+SpaceshipObject::~SpaceshipObject()
+{
+    
+}
+
 void SpaceshipObject::move() 
 {    
     if (((SDL_GetTicks()/1000 - this->cooldown) >= 5) && (this->intangible))
@@ -48,6 +53,7 @@ void SpaceshipObject::move()
 
                 std::cout << "clicou" << std::endl;
                 std::cout <<  SDL_GetTicks()/1000 << std::endl;
+
                 if ((!this->intangible) && (( SDL_GetTicks()/1000 - this->startTime) >= 7))
                 {
                     this->intangible = true;
@@ -55,16 +61,22 @@ void SpaceshipObject::move()
                     this->startTime = SDL_GetTicks()/1000;
                     this->cooldown = SDL_GetTicks()/1000;
                     
-                    //TODO renderizar a nave intangível
-                    //this->newRender()
+                    //renderizar a nave intangível
                     this->setText("../assets/spaceship_transparent.png");
                 }
                 
             default:
                 break;
-
         }
-
     }
+}
 
+void SpaceshipObject::setStartTime(int st) 
+{
+    this->startTime = st;
+}
+
+void SpaceshipObject::setCooldown(int cd) 
+{
+    this->cooldown = cd;
 }

@@ -1,7 +1,7 @@
 #include "../includes/Collision.hpp"
 
 
-void Collision::checkCollision(SpaceshipObject* player, std::vector<AsteroidObject*> asteroids)
+void Collision::checkCollision(SpaceshipObject* player, std::vector<AsteroidObject*> asteroids, bool* isOver)
 {
     for (auto ast : AsteroidSpawner::asteroids)
     {    
@@ -11,12 +11,31 @@ void Collision::checkCollision(SpaceshipObject* player, std::vector<AsteroidObje
             if(!player->intangible) 
             {
                 // GameOver
+                (*isOver) = true;
+
+                // Voltando a nave para a posição inicial
+                player->setXPos(118);
+                
+                // Destruindo asteroides
+                for(auto ast : AsteroidSpawner::asteroids)
+                {
+                    ast->~AsteroidObject();
+                }
+                AsteroidSpawner::asteroids.clear();
+                AsteroidSpawner::nAst = 0;
+
+                // Resetando timers
+                player->setCooldown(0);
+                player->setStartTime(-7);    
+
                 std::cout << "colidiu" << std::endl;
             }
             else 
             {
                 // Pontua
                 std::cout << "pontuou" << std::endl;
+
+                // Incrementar score
             }
         }
     }

@@ -67,3 +67,18 @@ int GameObject::getHeight()
 {
     return this->height;
 }
+
+void GameObject::setYPos(int y)
+{
+    this->ypos = y;
+}
+
+void GameObject::setXPos(int x)
+{
+    this->xpos = x;
+}
+
+void GameObject::setHeight(int h)
+{
+    this->height = h;
+}

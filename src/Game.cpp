@@ -8,6 +8,7 @@
 
 
 SpaceshipObject* player; // spaceship
+bool Game::isOver = false;
 
 SDL_Renderer* Game::renderer = nullptr;
 SDL_Event Game::event;
@@ -28,6 +29,7 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
 {
 
     int flags = 0;
+    isOver = false;
 
     if (fullscreen)
     {
@@ -59,6 +61,10 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
     BackTexture = TextureManager::LoadTexture("../assets/background.png");
     backDestRect.w = 356;
     backDestRect.h = 600;
+
+    GameOverTexture = TextureManager::LoadTexture("../assets/gameover.png");
+    gameOverRect.w = 356;
+    gameOverRect.h = 600;
 
     player = new SpaceshipObject("../assets/spaceship.png",118,500,206,237);
 
@@ -95,10 +101,9 @@ void Game::update()
     }
 
     // Checking collision
-    Collision::checkCollision(player, AsteroidSpawner::asteroids);
+    Collision::checkCollision(player, AsteroidSpawner::asteroids, &isOver);
 
-
-
+    // Incrementar o score a cada segundo usando SDL_GetTicks()/1000
 }
 
 void Game::render()
@@ -117,6 +122,27 @@ void Game::render()
         ast->Render();
     }
 
+    SDL_RenderPresent(renderer);
+}
+
+void Game::gameOver() 
+{
+    SDL_RenderClear(renderer);
+
+    // Renderiza a tela de game over
+    SDL_RenderCopy(renderer,GameOverTexture,NULL,&gameOverRect);
+
+    // renderizar o score 
+
+    // Game restart
+    if((Game::event.type == SDL_KEYDOWN) && (Game::event.key.keysym.sym == SDLK_r))
+    {
+        // Reset score (fazer)
+        // reset timer (fazer)
+
+        isOver = false;
+    }
+ 
     SDL_RenderPresent(renderer);
 }
 
