@@ -17,6 +17,9 @@ public:
 
     void move();
 
+    void setStartTime(int st);
+    void setCooldown(int cd);
+
 
 private:
     int startTime;

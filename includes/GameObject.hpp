@@ -17,6 +17,10 @@ public:
     int getXPos();
     int getHeight();
 
+    void setYPos(int y);
+    void setXPos(int x);
+    void setHeight(int h);
+
     void setText(const char* textureSheet);
 
     

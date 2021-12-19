@@ -27,8 +27,11 @@ public:
 
     bool running() {return this->isRunning;}
 
+    void gameOver();
+
     static SDL_Renderer* renderer;
     static SDL_Event event;
+    static bool isOver;
 
 private:
 
@@ -37,9 +40,11 @@ private:
     bool isRunning;
     SDL_Window* window;
     SDL_Texture* BackTexture;
+    SDL_Texture* GameOverTexture;
     SDL_Rect backDestRect;
+    SDL_Rect gameOverRect;
 
-    // => Functions
+
 
 };
 
