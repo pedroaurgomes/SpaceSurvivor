@@ -20,7 +20,7 @@ void SpaceshipObject::move()
     {
         this->intangible = false;
         std::cout << "tangível" << std::endl;
-        //trocar 
+        //trocando textura
         this->setText("../assets/spaceship.png");
     }
 

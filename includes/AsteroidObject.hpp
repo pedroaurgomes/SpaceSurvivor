@@ -1,7 +1,6 @@
 #pragma once
 #include "Game.hpp"
 #include "GameObject.hpp"
-//#include "AsteroidSpawner.hpp"
 #include <algorithm>
 
 class AsteroidObject : public GameObject {

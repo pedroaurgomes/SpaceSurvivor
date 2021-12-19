@@ -5,14 +5,21 @@
 #include "../includes/AsteroidObject.hpp"
 #include "../includes/AsteroidSpawner.hpp"
 #include "../includes/Collision.hpp"
+#include "../includes/Score.hpp"
+
+
+SDL_Renderer* Game::renderer = nullptr;
+SDL_Event Game::event;
+TTF_Font* font = nullptr;
+SDL_Color color = {255,255,255,255};
+SDL_Surface* textSurface = nullptr;
+SDL_Texture* scoreTexture = nullptr; 
 
 
 SpaceshipObject* player; // spaceship
 bool Game::isOver = false;
-
-SDL_Renderer* Game::renderer = nullptr;
-SDL_Event Game::event;
-
+int Game::startTime = 0;
+int Game::prevTime = 0;
 
 
 Game::Game() 
@@ -27,8 +34,10 @@ Game::~Game()
 
 void Game::init(const char *title, int xpos, int ypos, int width, int height, bool fullscreen)
 {
-
     int flags = 0;
+
+    startTime = SDL_GetTicks()/1000;
+    prevTime = startTime;
     isOver = false;
 
     if (fullscreen)
@@ -50,6 +59,15 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
             SDL_SetRenderDrawColor(renderer,255,255,255,255);
             std::cout << "Renderer created!" << std::endl;
         }   
+
+        // Score text settings
+        if(TTF_Init() < 0)
+        {
+            std::cout << "Error: " << TTF_GetError() << std::endl;  
+        }
+
+        font = TTF_OpenFont("../assets/Antonio-Bold.ttf", 40);
+
         isRunning = true;
 
     }
@@ -62,6 +80,7 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
     backDestRect.w = 356;
     backDestRect.h = 600;
 
+    // Setting gameover screen
     GameOverTexture = TextureManager::LoadTexture("../assets/gameover.png");
     gameOverRect.w = 356;
     gameOverRect.h = 600;
@@ -86,9 +105,6 @@ void Game::handleEvents()
 
 void Game::update() 
 {
-    //Clock::getCurrentTime(); --> colocar tempo na tela
-    //std::cout << SDL_GetTicks()/1000 << std::endl;
-
     player->Update();
 
     AsteroidSpawner::spawning();
@@ -96,14 +112,18 @@ void Game::update()
 
     for(auto ast : AsteroidSpawner::asteroids)
     {
-        //std::cout << ast->getXPos() << " "<< ast->getYPos() << std::endl;
         ast->Update();
     }
 
     // Checking collision
     Collision::checkCollision(player, AsteroidSpawner::asteroids, &isOver);
-
+    
     // Incrementar o score a cada segundo usando SDL_GetTicks()/1000
+    if (getCurrentTime() - prevTime >= 1) 
+    {
+        Score::score++; 
+        prevTime = getCurrentTime();
+    }
 }
 
 void Game::render()
@@ -113,14 +133,34 @@ void Game::render()
     // Rendering the background
     SDL_RenderCopy(renderer,BackTexture,NULL,&backDestRect);
 
+    // Rendering the player
     player->Render();
 
     // Rendering the asteroids
     for(auto ast : AsteroidSpawner::asteroids)
     {
-        //std::cout << ast->getXPos() << " "<< ast->getYPos() << std::endl;
         ast->Render();
     }
+
+    // Setting score text
+    std::string text = "SCORE: ";
+    const char* scoreString = NULL;
+
+    text += std::to_string(Score::score);
+    scoreString = text.c_str();
+
+    textSurface = TTF_RenderText_Solid(font,scoreString,color);
+    scoreTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+
+    // Setting score rect
+    textRect.x = 5;
+    textRect.y = 0;
+    SDL_QueryTexture(scoreTexture,NULL,NULL,&textRect.w, &textRect.h);
+    SDL_FreeSurface(textSurface);
+    textSurface = nullptr;
+
+    // rendering score
+    SDL_RenderCopy(renderer, scoreTexture, NULL, &textRect);
 
     SDL_RenderPresent(renderer);
 }
@@ -133,13 +173,23 @@ void Game::gameOver()
     SDL_RenderCopy(renderer,GameOverTexture,NULL,&gameOverRect);
 
     // renderizar o score 
+    textRect.x = 100;
+    textRect.y = 500;
+    SDL_QueryTexture(scoreTexture,NULL,NULL,&textRect.w, &textRect.h);
+
+    SDL_RenderCopy(renderer, scoreTexture, NULL, &textRect);
 
     // Game restart
     if((Game::event.type == SDL_KEYDOWN) && (Game::event.key.keysym.sym == SDLK_r))
     {
-        // Reset score (fazer)
-        // reset timer (fazer)
+        // reset score
+        Score::score = 0;
 
+        // reset timer 
+        startTime = SDL_GetTicks()/1000;
+        prevTime = getCurrentTime();
+
+        // game over
         isOver = false;
     }
  
@@ -148,8 +198,14 @@ void Game::gameOver()
 
 void Game::clean()
 {
+    SDL_DestroyTexture(scoreTexture);
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
     SDL_Quit();
     std::cout << "Game Cleaned!" << std::endl;
+}
+
+int Game::getCurrentTime() 
+{
+    return SDL_GetTicks()/1000 - startTime;
 }

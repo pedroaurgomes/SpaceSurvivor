@@ -3,6 +3,7 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 #include <stdio.h>
 #include <iostream>
 #include <time.h>
@@ -10,14 +11,11 @@
 class Game { 
 
 public:
-    // => Variables
-
-
-    // => Functions
     // Constructor and Deconstructor
     Game();
     ~Game();
 
+    // => Functions
     void init(const char *title, int xpos, int ypos, int width, int height, bool fullscreen);
     
     void handleEvents();
@@ -29,9 +27,15 @@ public:
 
     void gameOver();
 
+    int getCurrentTime();
+
+    // => Variables
     static SDL_Renderer* renderer;
     static SDL_Event event;
+
     static bool isOver;
+    static int startTime;
+
 
 private:
 
@@ -43,9 +47,8 @@ private:
     SDL_Texture* GameOverTexture;
     SDL_Rect backDestRect;
     SDL_Rect gameOverRect;
-
-
-
+    SDL_Rect textRect;
+    static int prevTime; // guarda o tempo anterior até completar 1 segundo (incrementar score)
 };
 
 

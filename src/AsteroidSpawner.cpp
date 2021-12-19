@@ -42,7 +42,6 @@ bool AsteroidSpawner::checkAstPos(AsteroidObject* ast)
 	{
 
 		ast->~AsteroidObject();
-		//std::cout << "destruiu" << std::endl;
 		AsteroidSpawner::nAst--;
 		return true;
 	}
