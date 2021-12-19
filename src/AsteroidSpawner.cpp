@@ -25,7 +25,7 @@ void AsteroidSpawner::AsteroidCreate()
 
 	// (textureSheet,x,y,h,w) 
 	// y é sempre = 0
-	ast = new AsteroidObject("../assets/newAsteroidHorizontal.png",xpos,0,206,237);
+	ast = new AsteroidObject("../assets/newAsteroidHorizontal.png",xpos,-206,206,237);
     
     AsteroidSpawner::asteroids.push_back(ast);
 }

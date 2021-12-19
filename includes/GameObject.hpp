@@ -13,6 +13,13 @@ public:
     void Render();
     virtual void move() = 0; // pure virtual function
                             // as classes que herdam de GameObject devem implementar essa funcao
+    int getYPos();
+    int getXPos();
+    int getHeight();
+
+    void setText(const char* textureSheet);
+
+    
 
 protected: 
     // positions

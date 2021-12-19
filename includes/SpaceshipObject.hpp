@@ -7,6 +7,9 @@ class SpaceshipObject : public GameObject {
 
 
 public:
+
+    bool intangible;
+
     // Constructor and destructor
     SpaceshipObject(const char* textureSheet, int x, int y, int h, int w);
     ~SpaceshipObject();
@@ -16,6 +19,6 @@ public:
 
 
 private:
-
-
+    int startTime;
+    int cooldown;
 };
