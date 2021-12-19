@@ -20,6 +20,11 @@ GameObject::~GameObject()
     
 }
 
+void GameObject::setText(const char* textureSheet)
+{
+    objTexture = TextureManager::LoadTexture(textureSheet);
+}
+
 void GameObject::Update()
 {
     //xpos++;
@@ -46,4 +51,19 @@ void GameObject::Render()
 {
     SDL_RenderCopy(Game::renderer,objTexture,&srcRect,&destRect);
 
+}
+
+int GameObject::getYPos() 
+{
+    return this->ypos;
+}
+
+int GameObject::getXPos()
+{
+    return this->xpos;
+}
+
+int GameObject::getHeight()
+{
+    return this->height;
 }

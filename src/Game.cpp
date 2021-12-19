@@ -4,11 +4,15 @@
 #include "../includes/SpaceshipObject.hpp"
 #include "../includes/AsteroidObject.hpp"
 #include "../includes/AsteroidSpawner.hpp"
+#include "../includes/Collision.hpp"
+
 
 SpaceshipObject* player; // spaceship
 
 SDL_Renderer* Game::renderer = nullptr;
 SDL_Event Game::event;
+
+
 
 Game::Game() 
 {
@@ -76,17 +80,8 @@ void Game::handleEvents()
 
 void Game::update() 
 {
-    /*
-    cnt++;
-
-    // Escala 2x menor (tamanho original: 206x237)
-    destRect.h = 103.f;
-    destRect.w = 117.5f;
-
-    destRect.x = cnt;
-
-    std::cout << cnt << std::endl;
-    */
+    //Clock::getCurrentTime(); --> colocar tempo na tela
+    //std::cout << SDL_GetTicks()/1000 << std::endl;
 
     player->Update();
 
@@ -99,6 +94,11 @@ void Game::update()
         ast->Update();
     }
 
+    // Checking collision
+    Collision::checkCollision(player, AsteroidSpawner::asteroids);
+
+
+
 }
 
 void Game::render()
@@ -107,8 +107,7 @@ void Game::render()
 
     // Rendering the background
     SDL_RenderCopy(renderer,BackTexture,NULL,&backDestRect);
-    
-    // Rendering the spaceship
+
     player->Render();
 
     // Rendering the asteroids

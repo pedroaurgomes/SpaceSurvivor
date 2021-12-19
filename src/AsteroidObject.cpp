@@ -13,30 +13,6 @@ AsteroidObject::~AsteroidObject()
 
 void AsteroidObject::move() 
 {   
-
     this->ypos += speed;
-
-    /*
-    // Quando o asteroide sair da tela, destrua-o
-    if(ypos >= 600)    
-    {
-    
-        AsteroidSpawner::asteroids.erase(std::remove(AsteroidSpawner::asteroids.begin(), 
-        AsteroidSpawner::asteroids.end(), this), AsteroidSpawner::asteroids.end());
-        
-
-        this->~AsteroidObject();
-        // decrementar número de asteroides na tela
-    }
-    */
 }   
 
-int AsteroidObject::getYPos() 
-{
-    return this->ypos;
-}
-
-int AsteroidObject::getXPos()
-{
-    return this->xpos;
-}

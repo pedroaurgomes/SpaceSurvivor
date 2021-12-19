@@ -5,8 +5,9 @@
 #include <SDL2/SDL_image.h>
 #include <stdio.h>
 #include <iostream>
+#include <time.h>
 
-class Game{ 
+class Game { 
 
 public:
     // => Variables
