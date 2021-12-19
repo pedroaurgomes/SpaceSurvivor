@@ -6,7 +6,6 @@ class GameObject {
 public:
     // Constructor and destructor
     GameObject(const char* textureSheet, int x, int y, int h, int w);
-    //GameObject()= default;
     ~GameObject();
 
     void Update();

@@ -27,15 +27,12 @@ void Collision::checkCollision(SpaceshipObject* player, std::vector<AsteroidObje
                 // Resetando timers
                 player->setCooldown(0);
                 player->setStartTime(-7);    
-
-                std::cout << "colidiu" << std::endl;
             }
+            
             else 
             {
                 // Pontua
-                std::cout << "pontuou" << std::endl;
-
-                // Incrementar score
+                Score::score++;
             }
         }
     }

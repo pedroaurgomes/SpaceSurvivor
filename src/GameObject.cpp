@@ -27,20 +27,13 @@ void GameObject::setText(const char* textureSheet)
 
 void GameObject::Update()
 {
-    //xpos++;
-    //ypos++;
-
     srcRect.h = height;
     srcRect.w = width;
     srcRect.x = 0;
     srcRect.y = 0;
-    //srcRect = NULL;
-
 
     destRect.x = xpos;
     destRect.y = ypos;
-    //destRect.w = srcRect.w * 2;
-    //destRect.h = srcRect.h * 2;
     destRect.w = srcRect.w / 2; // scaling by half
     destRect.h = srcRect.h / 2; // scaling by half
 
