@@ -21,6 +21,9 @@ bool Game::isOver = false;
 int Game::startTime = 0;
 int Game::prevTime = 0;
 
+std::thread Game::tdTimeScore;
+std::thread Game::tdCollisionScore;
+
 
 Game::Game() 
 {
@@ -39,6 +42,8 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
     startTime = SDL_GetTicks()/1000;
     prevTime = startTime;
     isOver = false;
+    //tdTimeScore = std::thread(Score::addScore);
+    //std::thread tdTimeScore(Score::addScore);
 
     if (fullscreen)
     {
@@ -115,15 +120,15 @@ void Game::update()
         ast->Update();
     }
 
-    // Checking collision
-    Collision::checkCollision(player, AsteroidSpawner::asteroids, &isOver);
-    
-    // Incrementar o score a cada segundo usando SDL_GetTicks()/1000
-    if (getCurrentTime() - prevTime >= 1) 
-    {
-        Score::score++; 
-        prevTime = getCurrentTime();
-    }
+    // Creating threads
+    // 1. checkCollision (and scoring with intangibility)
+    // 2. scoreByTime
+
+    Game::tdTimeScore = std::thread(Game::scoreByTime);
+    Game::tdCollisionScore = std::thread(Collision::checkCollision,player,AsteroidSpawner::asteroids,&isOver);
+
+    tdTimeScore.join();
+    tdCollisionScore.join();
 }
 
 void Game::render()
@@ -208,4 +213,15 @@ void Game::clean()
 int Game::getCurrentTime() 
 {
     return SDL_GetTicks()/1000 - startTime;
+}
+
+void Game::scoreByTime() 
+{
+    // Incrementar o score a cada segundo usando SDL_GetTicks()/1000
+    if (Game::getCurrentTime() - Game::prevTime >= 1) 
+    {   
+        Score::addScore();
+
+        prevTime = Game::getCurrentTime();
+    }
 }

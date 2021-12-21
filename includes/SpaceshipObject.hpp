@@ -2,6 +2,7 @@
 
 #include "Game.hpp"
 #include "GameObject.hpp"
+#include "Score.hpp"
 
 class SpaceshipObject : public GameObject {
 

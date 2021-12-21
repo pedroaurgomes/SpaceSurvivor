@@ -30,9 +30,9 @@ void Collision::checkCollision(SpaceshipObject* player, std::vector<AsteroidObje
             }
             
             else 
-            {
-                // Pontua
-                Score::score++;
+            {   
+                // Pontuando
+                Score::addScore();
             }
         }
     }

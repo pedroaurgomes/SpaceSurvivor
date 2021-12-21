@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <time.h>
+#include <thread>
 
 class Game { 
 
@@ -27,7 +28,7 @@ public:
 
     void gameOver();
 
-    int getCurrentTime();
+    static int getCurrentTime();
 
     // => Variables
     static SDL_Renderer* renderer;
@@ -49,6 +50,12 @@ private:
     SDL_Rect gameOverRect;
     SDL_Rect textRect;
     static int prevTime; // guarda o tempo anterior até completar 1 segundo (incrementar score)
+
+    static std::thread tdTimeScore;
+    static std::thread tdCollisionScore;
+
+    // => Functions
+    static void scoreByTime();
 };
 
 
