@@ -10,8 +10,21 @@ public:
 
     void Update();
     void Render();
+    virtual void move() = 0; // pure virtual function
+                            // as classes que herdam de GameObject devem implementar essa funcao
+    int getYPos();
+    int getXPos();
+    int getHeight();
 
-private: 
+    void setYPos(int y);
+    void setXPos(int x);
+    void setHeight(int h);
+
+    void setText(const char* textureSheet);
+
+    
+
+protected: 
     // positions
     int xpos;
     int ypos;
@@ -20,6 +33,7 @@ private:
     int height;
     int width;
 
+private:
     SDL_Texture* objTexture;
     SDL_Rect srcRect, destRect;
     SDL_Renderer* renderer;
