@@ -19,7 +19,7 @@ void SpaceshipObject::move()
     if (((SDL_GetTicks()/1000 - this->cooldown) >= 5) && (this->intangible))
     {
         this->intangible = false;
-        std::cout << "tangível" << std::endl;
+
         //trocando textura
         this->setText("../assets/spaceship.png");
     }
@@ -51,15 +51,12 @@ void SpaceshipObject::move()
             // Intangibility
             case SDLK_SPACE:
 
-                std::cout << "clicou" << std::endl;
-                std::cout <<  SDL_GetTicks()/1000 << std::endl;
-
                 if ((!this->intangible) && (( SDL_GetTicks()/1000 - this->startTime) >= 7))
-                {
+                { 
                     this->intangible = true;
-                    std::cout << "intangível" << std::endl;
+                    
                     this->startTime = SDL_GetTicks()/1000;
-                    this->cooldown = SDL_GetTicks()/1000;
+                    this->cooldown = this->startTime; // receber startime
                     
                     //renderizar a nave intangível
                     this->setText("../assets/spaceship_transparent.png");

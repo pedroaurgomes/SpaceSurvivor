@@ -4,7 +4,7 @@ PROG=main.cpp
 TARGET= main
 
 all:
-	@$(CC) -o $(TARGET) $(SOURCE) $(PROG) -lSDL2 -lSDL2_image -lSDL2_ttf
+	@$(CC) -o $(TARGET) $(SOURCE) $(PROG) -pthread -lSDL2 -lSDL2_image -lSDL2_ttf
 
 run:
 	@./$(TARGET)
