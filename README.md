@@ -14,6 +14,14 @@ and semaphores - to its implementation.
 
 ### 1. Como instalar
 
+Game requirements:
+​
+15
+### 1. Como instalar
+sudo apt install libsdl2-dev
+sudo apt install libsdl2-image-dev
+sudo apt install libsdl2-ttf-dev
+
 ### 2. Como jogar
 
 **Objetivo**: Sobreviver no espaço o máximo que puder, evitando os asteróides e acumulando pontos no score.
