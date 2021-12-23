@@ -6,9 +6,9 @@ and semaphores - to its implementation.
 ## Portuguese version:
 
 ## Alunos 
- * Diógenes da Silva Pedro - nUSP:
- * João Victor Sene Araújo - nUSP:
- * Pedro Augusto Ribeiro Gomes - nUSP: 11819125
+ * [Diógenes da Silva Pedro](https://github.com/DioPedro) - nUSP:
+ * [João Victor Sene Araújo](https://github.com/JoaoVSene) - nUSP:
+ * [Pedro Augusto Ribeiro Gomes](https://github.com/pedroaurgomes) - nUSP: 11819125
 
 ## Manual
 
