@@ -42,7 +42,7 @@ and semaphores - to its implementation.
  
 
 ### 3. Aplicação dos conceitos de Threads e Semáforos no jogo
-<p>No Game Loop do jogo, mais especificamente na função Update(), há uma função para verificar a colisão da nave com um asteróide e , se o jogador estiver intangível, somar pontos ao score - checkCollision() - e há também uma outra função que soma 1 ponto ao score a cada segundo passado - scoreByTime().<\p>
+<p>No Game Loop do jogo, mais especificamente na função Update(), há uma função para verificar a colisão da nave com um asteróide e , se o jogador estiver intangível, somar pontos ao score - checkCollision() - e há também uma outra função que soma 1 ponto ao score a cada segundo passado - scoreByTime().</p>
   
 <p>Com o objetivo de paralelizar esses procedimentos e consequenetemente otimizar a execução do programa, criamos duas threads e colocamos cada uma dessas funções para executar em uma delas. Dessa forma, a verificação de colisão é feita em uma thread, o incremento do score por segundo é feito em outra, e o resto das ações em Update() são performadas na thread principal.</p>
   
