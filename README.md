@@ -18,9 +18,9 @@ and semaphores - to its implementation.
 
 1. Primeiramente, baixe as bibliotecas necessárias:<br>
 
-  &nbsp;&nbsp;&nbsp;&nbsp;sudo apt install libsdl2-dev <br>
-  &nbsp;&nbsp;&nbsp;&nbsp;sudo apt install libsdl2-image-dev<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;sudo apt install libsdl2-ttf-dev<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sudo apt install libsdl2-dev <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sudo apt install libsdl2-image-dev<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sudo apt install libsdl2-ttf-dev<br>
   
 2. Em seguida, clone este repositório para a sua máquina local.<br>
 3. Então, entre no diretório src/ e execute o comando "make" para compilar o programa e depois execute "make run" para rodar o jogo.<br>
