@@ -17,9 +17,9 @@ and semaphores - to its implementation.
 0. O jogo foi desenvolvido e concebido para ser executado em um Sistema Operacional Linux. Caso você não o tenha nativamente em seu computador, considere instalar uma máquina virtual, como a [VirtualBox](https://www.virtualbox.org/).
 
 1. Certifique-se de que os seguintes programas estão instalados: <br>
- &nbsp;&nbsp;make; <br>
- &nbsp;&nbsp;git; <br>
- &nbsp;&nbsp;g++.<br>
+ &nbsp;make; <br>
+ &nbsp;git; <br>
+ &nbsp;g++.<br>
 
 2. Baixe as bibliotecas necessárias:<br>
 
