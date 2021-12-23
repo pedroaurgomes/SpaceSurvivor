@@ -16,4 +16,18 @@ and semaphores - to its implementation.
 
 ### 2. Como jogar
 
+Objetivo: Sobreviver no espaço o máximo que puder, evitando os asteróides e acumulando pontos no score.
+
+Controles: 
+  => Utilize as teclas "a" e "d" para mover a nave para a esquerda e para a direita, respectivamente. 
+  => Use a barra de espaço para tornar a nave instangível por um curto espaço de tempo. Cuidado, pois a habilidade só ficará disponível novamente após alguns segundos de carregamento.
+  => Na tela de Game Over, o jogador deve pressionar "r" para começar uma nova partida.
+
+Observações:
+  => Ao colidir com um asteróide, o jogador perde o jogo
+  => A cada segundo é somando um ponto ao score do jogador.
+  => Quando a nave estiver intangível e o jogador ousar passar por um asteróide, ele ganhará uma grande quantidade de pontos rapidamente.
+  => A quantidade de pontos que o jogador ganha ao atravessar um asteróide no modo intangível é proporcional ao tempo que ele ficar na mesma posição que o asteróide. Ou seja, enquanto estiver sobrepondo o asteróide, o score será incrementado, e portanto, quanto mais tempo o jogador passar nessa situação, mais pontos ele ganhará. Porém, se a nave voltar a se tornar tangível enquanto estiver sobre um asteróide, ela colidirá e o jogador perderá.
+ 
+
 ### 3. Aplicação dos conceitos de Threads e Semáforos no jogo
