@@ -1,6 +1,6 @@
 # SOGame : Space Survivor
 
-Game developed to SSC0140 Operating Systems classes in the University Of São Paulo. The task was creating a simple game from scratch and apply concepts - threads 
+Game developed to SSC0140 Operating Systems classes in the University Of São Paulo. The task was to create a simple game from scratch and apply concepts - threads 
 and sempahores - to its implementation.
 
 ## Portuguese version:
