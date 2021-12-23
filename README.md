@@ -14,7 +14,7 @@ and semaphores - to its implementation.
 
 ### 1. Como instalar
 
-0. O jogo foi desenvolvido e concebido para ser executado em Sistema Operacional Linux. Caso você não o tenha nativamente em seu computador, considere instalar uma máquina virtual, como a [VirtualBox](https://www.virtualbox.org/).
+0. O jogo foi desenvolvido e concebido para ser executado em um Sistema Operacional Linux. Caso você não o tenha nativamente em seu computador, considere instalar uma máquina virtual, como a [VirtualBox](https://www.virtualbox.org/).
 
 1. Primeiramente, baixe as bibliotecas necessárias:<br>
 
