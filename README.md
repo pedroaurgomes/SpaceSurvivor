@@ -15,9 +15,6 @@ and semaphores - to its implementation.
 ### 1. Como instalar
 
 Game requirements:
-​
-15
-### 1. Como instalar
 sudo apt install libsdl2-dev
 sudo apt install libsdl2-image-dev
 sudo apt install libsdl2-ttf-dev
