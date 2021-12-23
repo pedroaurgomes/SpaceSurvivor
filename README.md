@@ -16,14 +16,14 @@ and semaphores - to its implementation.
 
 ### 2. Como jogar
 
-Objetivo: Sobreviver no espaço o máximo que puder, evitando os asteróides e acumulando pontos no score.
+**Objetivo**: Sobreviver no espaço o máximo que puder, evitando os asteróides e acumulando pontos no score.
 
-Controles: 
+**Controles**: 
   &rarr; Utilize as teclas "a" e "d" para mover a nave para a esquerda e para a direita, respectivamente. 
   => Use a barra de espaço para tornar a nave instangível por um curto espaço de tempo. Cuidado, pois a habilidade só ficará disponível novamente após alguns segundos de carregamento.
   => Na tela de Game Over, o jogador deve pressionar "r" para começar uma nova partida.
 
-Observações:
+**Observações**:
   => Ao colidir com um asteróide, o jogador perde o jogo
   => A cada segundo é somando um ponto ao score do jogador.
   => Quando a nave estiver intangível e o jogador ousar passar por um asteróide, ele ganhará uma grande quantidade de pontos rapidamente.
