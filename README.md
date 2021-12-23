@@ -14,10 +14,16 @@ and semaphores - to its implementation.
 
 ### 1. Como instalar
 
-Game requirements:
-sudo apt install libsdl2-dev
-sudo apt install libsdl2-image-dev
-sudo apt install libsdl2-ttf-dev
+0. O jogo foi desenvolvido e concebido para ser executado em Sistema Operacional Linux. Caso, você não o tenha nativamente em seu computador, considere instalar uma máquina virtual como [VirtualBox](https://www.virtualbox.org/).
+
+1. Primeiramente, baixe as bibliotecas necessárias:<br>
+
+  sudo apt install libsdl2-dev <br>
+  sudo apt install libsdl2-image-dev<br>
+  sudo apt install libsdl2-ttf-dev<br>
+  
+2. Em seguida, clone este repositório para a sua máquina local.<br>
+3. Então, entre no diretório src/ e execute o comando "make" para compilar o programa e depois execute "make run" para rodar o jogo.<br>
 
 ### 2. Como jogar
 
