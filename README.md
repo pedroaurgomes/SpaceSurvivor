@@ -36,7 +36,7 @@ and semaphores - to its implementation.
 
 **Observações**:<br>
   &rarr; Ao colidir com um asteróide, o jogador perde o jogo;<br>
-  &rarr; A cada segundo é somando um ponto ao score do jogador;<br>
+  &rarr; A cada segundo é somado um ponto ao score do jogador;<br>
   &rarr; Quando a nave estiver intangível e o jogador ousar passar por um asteróide, ele ganhará uma grande quantidade de pontos rapidamente;<br>
   &rarr; A quantidade de pontos que o jogador ganha ao atravessar um asteróide no modo intangível é proporcional ao tempo que ele ficar na mesma posição que o asteróide. Ou seja, enquanto estiver sobrepondo o asteróide, o score será incrementado, e portanto, quanto mais tempo o jogador passar nessa situação, mais pontos ele ganhará. Porém, se a nave voltar a se tornar tangível enquanto estiver sobre um asteróide, ela colidirá e o jogador perderá.<br>
  
