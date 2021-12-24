@@ -1,4 +1,4 @@
-# SOGame : Space Survivor
+# OSGame: Space Survivor
 
 Game developed to SSC0140 Operating Systems classes in the University Of São Paulo. The task was to create a simple game from scratch and apply concepts - threads 
 and semaphores - to its implementation.
